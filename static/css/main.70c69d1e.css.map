@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.70c69d1e.css","mappings":"AAAA;;CAAA,m4JAEA","sources":["sass/app.scss"],"sourcesContent":["@tailwind base;\n@tailwind components;\n@tailwind utilities;"],"names":[],"sourceRoot":""}
