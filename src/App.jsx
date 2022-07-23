@@ -6,7 +6,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
 
 import { Card, CardBody, CardFooter, CardHeader, CardInformation } from './Components/Card';
 import { PrimaryButton } from './Components/Button';
-import { Pill } from './Components/Misc';
+import { Pill, WorkExperience } from './Components/Misc';
 
 import codeHeader from './images/php-code-header.jpeg';
 import avatar from './images/thomas-palmer.jpeg';
@@ -31,12 +31,29 @@ const socialLinks = [
     },
 ];
 
+const experience = [
+    {
+        company: 'CI Group',
+        role: 'Lead Developer',
+        location: 'Banbury',
+        duration: 'July 2011 - January 2016',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam culpa deserunt, dolor dolore doloremque eligendi eos est exercitationem explicabo fugit libero maxime natus nisi nulla omnis porro quae rerum voluptate!',
+    },
+    {
+        company: 'CI Group',
+        role: 'Lead Developer',
+        location: 'Banbury',
+        duration: 'July 2011 - January 2016',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam culpa deserunt, dolor dolore doloremque eligendi eos est exercitationem explicabo fugit libero maxime natus nisi nulla omnis porro quae rerum voluptate!',
+    },
+];
+
 const App = () => {
     return (
-        <div className="h-screen flex bg-gray-100 py-6 px-6 md:px-0 overflow-y-scroll">
-            <div className="max-w-4xl w-full mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="space-y-6">
+        <div className="flex bg-gray-100 p-3 lg:py-6 lg:px-0">
+            <div className="max-w-5xl w-full mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="space-y-4">
                         <Card showDividers={false}>
                             <img
                                 className="rounded-t-lg"
@@ -44,9 +61,9 @@ const App = () => {
                                 alt=""
                             />
 
-                            <div className="border-2 border-white rounded-md -mt-12 ml-6">
+                            <div className="relative h-12">
                                 <img
-                                    className="w-24 h-24 rounded-md"
+                                    className="absolute -top-12 left-6 w-24 h-24 rounded-md border-2 border-white shadow"
                                     src={avatar}
                                     alt="Thomas Palmer"
                                 />
@@ -75,7 +92,7 @@ const App = () => {
 
                                 <CardInformation
                                     label="Experience"
-                                    value="11+ years"
+                                    value="10+ years"
                                 />
                             </CardBody>
                         </Card>
@@ -95,7 +112,7 @@ const App = () => {
                         </Card>
                     </div>
 
-                    <div className="md:col-span-2 space-y-6">
+                    <div className="md:col-span-2 space-y-4">
                         <Card>
                             <CardHeader>
                                 About Me
@@ -122,6 +139,26 @@ const App = () => {
                                     </a>
                                 ))}
                             </CardFooter>
+                        </Card>
+
+                        <Card>
+                            <CardHeader>
+                                Experience
+                            </CardHeader>
+
+                            {experience.map(experience => (
+                                <WorkExperience {...experience} />
+                            ))}
+                        </Card>
+
+                        <Card>
+                            <CardHeader>
+                                References
+                            </CardHeader>
+
+                            <CardBody>
+                                References are available upon request.
+                            </CardBody>
                         </Card>
                     </div>
                 </div>
