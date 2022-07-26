@@ -5,7 +5,6 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
 
 import { Card, CardBody, CardFooter, CardHeader, CardInformation } from './Components/Card';
-import { PrimaryButton } from './Components/Button';
 import { Education, Pill, WorkExperience } from './Components/Misc';
 
 import codeHeader from './images/php-code-header.jpeg';
@@ -299,10 +298,6 @@ const App = () => {
                             <CardBody>
                                 <h1 className="font-bold text-xl">Thomas Palmer</h1>
                                 <h2 className="text-gray-400 text-md mt-2">Lead Web Developer</h2>
-
-                                {/*<PrimaryButton className="mt-4" fw={true}>*/}
-                                {/*    Download CV*/}
-                                {/*</PrimaryButton>*/}
                             </CardBody>
                         </Card>
 
