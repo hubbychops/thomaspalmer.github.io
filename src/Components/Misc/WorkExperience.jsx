@@ -22,7 +22,7 @@ const WorkExperience = ({ company, role, location, duration, description }) => {
                 </div>
             </div>
 
-            <div className="text-gray-500">
+            <div className="text-gray-500 space-y-3">
                 {description}
             </div>
         </div>
