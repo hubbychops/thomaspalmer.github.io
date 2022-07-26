@@ -12,9 +12,26 @@ import codeHeader from './images/php-code-header.jpeg';
 import avatar from './images/thomas-palmer.jpeg';
 
 const skills = [
-    'JavaScript', 'React.JS', 'VueJS', 'Angular', 'CSS', 'SCSS', 'Bootstrap', 'TailWind', 'PHP', 'Laravel', 'Symfony',
-    'Phalcon', 'CodeIgniter', 'PHPUnit', 'WordPress', 'WooCommerce', 'MySQL', 'PostgreSQL', 'MongoDB', 'Redis',
-    'Digital Ocean', 'AWS', 'NGINX', 'Node.JS', 'Express', 'sockets.io', 'puppeteer', 'React Native',
+    {
+        category: 'Frontend',
+        skills: [
+            'JavaScript', 'React.JS', 'VueJS', 'Angular', 'CSS', 'SCSS', 'Bootstrap', 'TailWind', 'React Native',
+            'TypeScript'
+        ]
+    },
+    {
+        category: 'Backend',
+        skills: [
+            'PHP', 'Laravel', 'Symfony', 'Phalcon', 'CodeIgniter', 'PHPUnit', 'MySQL',
+            'PostgreSQL', 'MongoDB', 'Redis', 'Node.JS', 'Express', 'sockets.io', 'puppeteer',
+        ],
+    },
+    {
+        category: 'Infrastructure',
+        skills: [
+            'Digital Ocean', 'AWS', 'NGINX', 'Lambda', 'Laravel Vapor', 'Laravel Forge',
+        ],
+    },
 ];
 
 const socialLinks = [
@@ -43,23 +60,24 @@ const experience = [
                 <p>
                     To help grow the business further I decided to focus on managing the development team. I helped to
                     grow the business further including growing headcount to 7 with support from several freelancers and
-                    grew turnover to mid 6 figures.
+                    grew the turnover to mid 6 figures.
                 </p>
 
                 <ul className="list-disc ml-6">
                     <li>Developed 2 SaaS applications for events and virtual events</li>
                     <li>Built a SaaS application for managing client visibility of their projects</li>
                     <li>Migrated hosting over to Laravel Vapor and AWS lambda to provide our clients with a scalable and resilient hosting environment</li>
-                    <li>Manage a team of 5 developers, provided progress reports and mentored junior members</li>
+                    <li>Managed a team of 5 developers, provided progress reports and mentored junior members</li>
                     <li>Worked with our managing director and project manager to pitch for new projects</li>
                     <li>Implemented new development processes and guidelines</li>
+                    <li>Utilised React Native to build several mobile applications</li>
                 </ul>
             </Fragment>
         ),
     },
     {
         company: 'Duality Studio',
-        role: 'Founder, Managing Director, Project Manager, Lead Developer',
+        role: 'Managing Director, Lead Developer',
         location: 'Charlbury',
         duration: 'April 2014 - September 2020',
         description: (
@@ -72,7 +90,7 @@ const experience = [
 
                 <ul className="list-disc ml-6">
                     <li>Built and managed several composer and npm packages to stream line development of applications for our customers</li>
-                    <li>Delegate client requests across the team of developers</li>
+                    <li>Delegated client requests across the team of developers</li>
                     <li>Helped to deliver over 200 web applications for clients</li>
                     <li>Developed and maintained a dozen SaaS applications for clients as well as our own prototypes</li>
                     <li>Established several partnerships with agencies who need digital support on behalf of their client</li>
@@ -90,12 +108,12 @@ const experience = [
             <Fragment>
                 <p>
                     I was contracted to support a marketing agency and to help mentor their developers. My development
-                    responsibilities were to implement new features and bug fixes on their CRM SaaS application.
+                    responsibilities were to implement new features and fix bugs on their CRM SaaS application.
                 </p>
 
                 <ul className="list-disc ml-6">
                     <li>Implemented an extensive list of new features and bug fixes on their SaaS</li>
-                    <li>Nurtured and monitored the development team and reported back to managing director</li>
+                    <li>Nurtured and mentored the development team and reported back to the managing director</li>
                     <li>Lead the redevelopment of the frontend application in React.JS and started to redevelop the backend away from Phalcon and towards Laravel</li>
                     <li>Lead the migration of several large customers into the CRM and developed integrations for customers existing tools and systems</li>
                 </ul>
@@ -202,9 +220,9 @@ const experience = [
 
                 <ul className="list-disc ml-6">
                     <li>Built a bespoke CMS application for event registration websites</li>
-                    <li>Build a bespoke application for F5 networks</li>
+                    <li>Built a bespoke application for F5 networks</li>
                     <li>Provided pitches and demos to the owners of the business</li>
-                    <li>Helped the a new senior get started</li>
+                    <li>Helped the new senior developer get started</li>
                 </ul>
             </Fragment>
         ),
@@ -253,7 +271,7 @@ const education = [
     {
         school: 'The Warriner School',
         duration: 'September 2005 - June 2011',
-        description: 'I achieved 7 GCSE\'s (A-C).s',
+        description: 'I achieved 7 GCSE\'s (A-C)',
     },
 ];
 
@@ -282,9 +300,9 @@ const App = () => {
                                 <h1 className="font-bold text-xl">Thomas Palmer</h1>
                                 <h2 className="text-gray-400 text-md mt-2">Lead Web Developer</h2>
 
-                                <PrimaryButton className="mt-4" fw={true}>
-                                    Download CV
-                                </PrimaryButton>
+                                {/*<PrimaryButton className="mt-4" fw={true}>*/}
+                                {/*    Download CV*/}
+                                {/*</PrimaryButton>*/}
                             </CardBody>
                         </Card>
 
@@ -323,12 +341,36 @@ const App = () => {
                                 Skills and Technology
                             </CardHeader>
 
-                            <CardBody>
-                                <div className="flex flex-wrap -ml-2">
-                                    {skills.map(skill => (
-                                        <Pill>{skill}</Pill>
-                                    ))}
-                                </div>
+                            <CardBody className="space-y-4">
+                                {skills.map(category => (
+                                    <div>
+                                        <p>
+                                            {category.category}
+                                        </p>
+
+                                        <div className="flex flex-wrap -ml-2">
+                                            {category.skills.map(skill => (
+                                                <Pill>{skill}</Pill>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+
+                            </CardBody>
+                        </Card>
+
+                        <Card>
+                            <CardHeader>
+                                Interests
+                            </CardHeader>
+
+                            <CardBody className="space-y-3">
+                                <ul className="list-disc ml-6">
+                                    <li>I enjoy walks with my fiancée and dogs</li>
+                                    <li>I play golf with a few friends</li>
+                                    <li>I am currently preparing to go travelling around the UK</li>
+                                    <li>I am trying to improve my written skills by writing stories</li>
+                                </ul>
                             </CardBody>
                         </Card>
                     </div>
@@ -348,7 +390,7 @@ const App = () => {
                                 </p>
 
                                 <p>
-                                    I am currently open to a Senior or Lead Developer role away from agencies.
+                                    I am currently open to a Senior or Lead Developer role, preferably building a SaaS application.
                                 </p>
                             </CardBody>
 
